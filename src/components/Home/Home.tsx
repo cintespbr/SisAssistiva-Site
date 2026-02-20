@@ -7,6 +7,7 @@ import MissaoVisaoValoresSection from "./MissaoVisaoValoresSection";
 import RedeSection from "./RedeSection";
 import ParaQuemSection from "./ParaQuemSection";
 import AtividadesSection from "./AtividadesSection";
+import ContactSection from "./ContactSection";
 
 const Home: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const Home: React.FC = () => {
       <RedeSection />
       <ParaQuemSection />
       <AtividadesSection />
+      <ContactSection />
     </>
   );
 };
