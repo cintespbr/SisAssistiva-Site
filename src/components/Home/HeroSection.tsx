@@ -1,19 +1,98 @@
+import React from "react";
 import styled from "styled-components";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 
-const HeroWrapper = styled.section`
-  background: #858585;
+import heroBackground from "../../assets/hero-section.png";
+import heroLogo from "../../assets/logosis-hero.svg";
+
+const SectionWrapper = styled.section`
+  position: relative;
   min-height: 100vh;
-  width: 100%;
   display: flex;
   align-items: center;
+  background-image: url(${heroBackground});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
 `;
+
+const Logo = styled(motion.img)`
+  width: 100%;
+  max-width: 480px;
+
+  @media (max-width: 768px) {
+    max-width: 300px;
+    margin-bottom: 40px;
+  }
+`;
+
+const Headline = styled(motion.h1)`
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+
+  @media (max-width: 992px) {
+    font-size: 2.2rem;
+    text-align: center;
+  }
+`;
+
+const logoVariants: Variants = {
+  hidden: { opacity: 0, x: -60 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
+
+const textVariants: Variants = {
+  hidden: { opacity: 0, x: 60 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.25, 0.1, 0.25, 1],
+    },
+  },
+};
 
 const HeroSection: React.FC = () => {
   return (
-    <HeroWrapper>
-      <Container>{/* Hero vazia por enquanto */}</Container>
-    </HeroWrapper>
+    <SectionWrapper>
+      <Container>
+        <Row className="align-items-center">
+          <Col lg={6} className="text-center text-lg-start">
+            <Logo
+              src={heroLogo}
+              alt="SisAssistiva"
+              variants={logoVariants}
+              initial="hidden"
+              animate="visible"
+            />
+          </Col>
+
+          <Col lg={6} className="text-center text-lg-end">
+            <Headline
+              variants={textVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              Descubra o Futuro da Tecnologia Assistiva.
+            </Headline>
+          </Col>
+        </Row>
+      </Container>
+    </SectionWrapper>
   );
 };
 
