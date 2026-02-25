@@ -1,11 +1,39 @@
 import React from "react";
 import styled from "styled-components";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
+
+// IMPORTAÇÃO DAS IMAGENS
+import bioprot from "../../assets/showcase/imagem_bioprot.png";
+import ufcgcert from "../../assets/showcase/imagem_ufcgcert.png";
+import dreanns from "../../assets/showcase/imagem_dreanns.jpg";
+import tecnoaging from "../../assets/showcase/imagem_tecnoaging.png";
+import fabict from "../../assets/showcase/imagem_fabict_cer.png";
+import amputsus from "../../assets/showcase/imagem_amputsus.jpg";
+import crmIot from "../../assets/showcase/imagem_crm_iot.png";
+import duaGames from "../../assets/showcase/imagem_dua_games.jpg";
+import lita from "../../assets/showcase/imagem_lita.png";
+import reablita from "../../assets/showcase/imagem_reablita.png";
+import sensegames from "../../assets/showcase/imagem_sensegames.jpg";
+import opMfa from "../../assets/showcase/imagem_op_mfa.jpg";
+import neurobeep from "../../assets/showcase/imagem_neurobeep.png";
+import aleta from "../../assets/showcase/imagem_aleta.jpg";
+import teclaboral from "../../assets/showcase/imagem_teclaboral.png";
+import monan from "../../assets/showcase/imagem_monan.png";
+import ducassist from "../../assets/showcase/imagem_3ducassist.jpg";
+import neurosutre from "../../assets/showcase/imagem_neurosutre.jpg";
+import sivam from "../../assets/showcase/imagem_sivam.jpg";
+import cuidarlab from "../../assets/showcase/imagem_cuidarlab.png";
+import pdcomp from "../../assets/showcase/imagem_pdcomp.png";
+import rps50 from "../../assets/showcase/imagem_rps50_ta.jpg";
+import tecincluir from "../../assets/showcase/imagem_tecincluir.png";
+import reabnet from "../../assets/showcase/imagem_reabnet.jpg";
+import roboptica from "../../assets/showcase/imagem_roboptica.png";
 
 const SectionWrapper = styled.section`
   background: #f5f5f5;
   padding: 120px 0;
+  overflow: hidden;
 `;
 
 const Title = styled.h2`
@@ -22,34 +50,66 @@ const Highlight = styled.span`
 const Text = styled.p`
   font-size: 1.1rem;
   line-height: 1.7;
-  margin-bottom: 15px;
+  margin-bottom: 60px;
 `;
 
-const Gallery = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 40px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-`;
-
-const ImageCard = styled(motion.img)`
+const CarouselWrapper = styled.div`
+  overflow: hidden;
   width: 100%;
-  border-radius: 20px;
+  margin-top: 40px;
+`;
+
+const CarouselTrack = styled(motion.div)`
+  display: flex;
+  gap: 30px;
+`;
+
+const ImageCard = styled.img`
+  width: 260px;
+  height: 160px;
   object-fit: cover;
+  border-radius: 20px;
+  flex-shrink: 0;
 `;
 
 const CTAButton = styled(Button)`
-  margin-top: 50px;
+  margin-top: 70px;
   padding: 15px 40px;
   border-radius: 40px;
   font-size: 1rem;
 `;
 
 const RedeSection: React.FC = () => {
+  const images = [
+    bioprot,
+    ufcgcert,
+    dreanns,
+    tecnoaging,
+    fabict,
+    amputsus,
+    crmIot,
+    duaGames,
+    lita,
+    reablita,
+    sensegames,
+    opMfa,
+    neurobeep,
+    aleta,
+    teclaboral,
+    monan,
+    ducassist,
+    neurosutre,
+    sivam,
+    cuidarlab,
+    pdcomp,
+    rps50,
+    tecincluir,
+    reabnet,
+    roboptica,
+  ];
+
+  const duplicatedImages = [...images, ...images];
+
   return (
     <SectionWrapper>
       <Container>
@@ -70,20 +130,20 @@ const RedeSection: React.FC = () => {
           real.
         </Text>
 
-        <Gallery>
-          {["/rede1.jpg", "/rede2.jpg", "/rede3.jpg", "/rede4.jpg"].map(
-            (img, index) => (
-              <ImageCard
-                key={index}
-                src={img}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.15, duration: 0.7 }}
-                viewport={{ once: true }}
-              />
-            ),
-          )}
-        </Gallery>
+        <CarouselWrapper>
+          <CarouselTrack
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              ease: "linear",
+              duration: 40,
+              repeat: Infinity,
+            }}
+          >
+            {duplicatedImages.map((img, index) => (
+              <ImageCard key={index} src={img} />
+            ))}
+          </CarouselTrack>
+        </CarouselWrapper>
 
         <div className="text-center">
           <CTAButton variant="primary">

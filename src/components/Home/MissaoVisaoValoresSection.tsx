@@ -4,6 +4,14 @@ import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 
+import visao from "../../assets/visao.png";
+import valores from "../../assets/valores.png";
+import missao from "../../assets/missao.png";
+
+import missionIcon from "../../assets/mission.png";
+import ratingIcon from "../../assets/rating.png";
+import binocularsIcon from "../../assets/binoculars.png";
+
 const SectionWrapper = styled.section`
   background: linear-gradient(135deg, #1c7ed6, #8e1dbd);
   padding: 120px 0;
@@ -32,7 +40,9 @@ const Card = styled(motion.div)<{ bg: string }>`
   padding: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   transition: 0.4s ease;
 
   &:hover {
@@ -43,7 +53,7 @@ const Card = styled(motion.div)<{ bg: string }>`
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.55);
   }
 
   > * {
@@ -58,9 +68,18 @@ const CardTitle = styled.h3`
   margin-bottom: 20px;
 `;
 
+const Icon = styled.img`
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  filter: brightness(0) invert(1);
+`;
+
 const CardText = styled.p`
   font-size: 1rem;
   line-height: 1.6;
+  max-width: 300px;
 `;
 
 const cardVariants: Variants = {
@@ -81,17 +100,20 @@ const MissaoVisaoValoresSection: React.FC = () => {
     {
       title: "Missão",
       text: "Desenvolver inovação tecnológica assistiva, viabilizando a transferência destas tecnologias para a sociedade e o setor produtivo.",
-      bg: "/missao.jpg",
+      bg: missao,
+      icon: missionIcon,
     },
     {
       title: "Visão",
       text: "Ser referência nacional no desenvolvimento de inovação em tecnologia assistiva.",
-      bg: "/visao.jpg",
+      bg: visao,
+      icon: binocularsIcon,
     },
     {
       title: "Valores",
       text: "Ética, rigor científico, inclusão social, respeito às pessoas e compromisso com o desenvolvimento sustentável.",
-      bg: "/valores.jpg",
+      bg: valores,
+      icon: ratingIcon,
     },
   ];
 
@@ -112,6 +134,7 @@ const MissaoVisaoValoresSection: React.FC = () => {
                 viewport={{ once: true }}
               >
                 <CardTitle>{card.title}</CardTitle>
+                <Icon src={card.icon} alt={`Ícone ${card.title}`} />
                 <CardText>{card.text}</CardText>
               </Card>
             </Col>

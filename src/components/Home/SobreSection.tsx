@@ -15,7 +15,7 @@ const Title = styled.h2`
   font-size: 2.5rem;
   font-weight: 700;
   color: #2f2f2f;
-  margin-bottom: 30px;
+  margin: 0 auto 30px auto;
   width: 472px;
 
   display: flex;
