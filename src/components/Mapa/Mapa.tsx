@@ -2,10 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-
-import heroBg from "../../assets/hero-projetos.png"; // coloque uma imagem do mapa aqui
-import mapaPreview from "../../assets/missao.png"; // print do mapa real
+import heroBg from "../../assets/hero-mapa.png";
+import mapaPreview from "../../assets/previa-mapa.png";
 
 /* ================= HERO ================= */
 
@@ -24,14 +22,14 @@ const HeroBackground = styled.div`
   background-image: url(${heroBg});
   background-size: cover;
   background-position: center;
-  filter: blur(6px);
+  filter: blur(2.5px);
   transform: scale(1.1);
 `;
 
 const HeroOverlay = styled.div`
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(92, 92, 92, 0.27);
 `;
 
 const HeroTitle = styled(motion.h1)`
@@ -116,9 +114,13 @@ const MapaPreview: React.FC = () => {
                 Assistiva.
               </SectionText>
 
-              <Link to="/mapa">
+              <a
+                href="https://sisassistiva.cintespbr.org/"
+                target="_blank" // abre em nova guia/janela
+                rel="noopener noreferrer" // sempre adicione isto por segurança
+              >
                 <CTAButton variant="primary">Acessar Mapa Completo</CTAButton>
-              </Link>
+              </a>
             </Col>
 
             <Col lg={6}>
