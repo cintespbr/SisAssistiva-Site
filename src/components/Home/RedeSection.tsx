@@ -146,7 +146,11 @@ const RedeSection: React.FC = () => {
         </CarouselWrapper>
 
         <div className="text-center">
-          <CTAButton variant="primary">
+          <CTAButton
+            variant="primary"
+            href="https://sisassistiva.cintespbr.org/"
+            target="_blank"
+          >
             Ver mapa de projetos do SisAssistiva
           </CTAButton>
         </div>
