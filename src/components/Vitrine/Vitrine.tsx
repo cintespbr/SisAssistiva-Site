@@ -31,6 +31,7 @@ import rps50 from "../../assets/showcase/imagem_rps50_ta.jpg";
 import tecincluir from "../../assets/showcase/imagem_tecincluir.png";
 import reabnet from "../../assets/showcase/imagem_reabnet.jpg";
 import roboptica from "../../assets/showcase/imagem_roboptica.png";
+import vitrineIMG from "../../assets/section1-vitrine.avif";
 
 /* =============================
    ESTILOS
@@ -48,7 +49,7 @@ const Section = styled.section`
 const Title = styled.h2`
   font-size: 2.4rem;
   font-weight: 700;
-  color: #232399;
+  color: #0082d3;
   margin-bottom: 8px;
 `;
 
@@ -121,7 +122,7 @@ const NavArrow = styled.button<{ side: "left" | "right" }>`
   background: transparent;
   border: none;
   font-size: 48px;
-  color: #232399;
+  color: #0082d3;
   cursor: pointer;
   z-index: 3;
 
@@ -167,6 +168,61 @@ const ThumbImage = styled.img`
   height: 64px;
   object-fit: cover;
   border-radius: 8px;
+`;
+
+const PdfButton = styled.a`
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg, #4da6ff, #b56dff);
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+`;
+
+const DocumentsSection = styled.section`
+  background: #f7f9fc;
+  padding: 80px 40px;
+  border-radius: 24px;
+  text-align: center;
+`;
+
+const DocumentTitle = styled.h2`
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0082d3;
+  margin-bottom: 16px;
+`;
+
+const DocumentText = styled.p`
+  max-width: 700px;
+  margin: 0 auto 32px auto;
+  line-height: 1.7;
+`;
+
+const DocumentCard = styled(motion.div)`
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 500px;
+  margin: 0 auto 32px auto;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+`;
+
+const DocumentIcon = styled.div`
+  font-size: 3rem;
+  margin-bottom: 16px;
 `;
 
 /* =============================
@@ -387,16 +443,28 @@ export default function Vitrine() {
               </Text>
             </Col>
             <Col lg={4} className="mt-4 mt-lg-0">
-              <GrayBox />
+              <img
+                src={vitrineIMG}
+                alt="Imagem ilustrativa da Vitrine SisAssistiva"
+                style={{ width: "100%", borderRadius: "16px" }}
+              />
             </Col>
           </Row>
         </Section>
 
         {/* CARROSSEL */}
         <Section>
-          <Title className="text-center mb-5">
+          <Title className="text-center mb-4">
             Conheça as tecnologias assistivas em desenvolvimento
           </Title>
+          <Text className="text-center mb-4">
+            A Vitrine SisAssistiva tem como objetivo dar visibilidade às
+            entregas da rede, estimular conexões estratégicas e apoiar a
+            aproximação entre ciência, setor produtivo e sociedade. Ela também
+            funciona como um ponto de referência para gestores públicos,
+            empresas, investidores e demais interessados em inovação em
+            Tecnologia Assistiva.
+          </Text>
           <CarouselWrapper>
             <NavArrow side="left" onClick={prevSlide}>
               ‹
@@ -432,6 +500,37 @@ export default function Vitrine() {
               ))}
             </ThumbsWrapper>
           </CarouselWrapper>
+        </Section>
+        <Section>
+          <DocumentsSection>
+            <DocumentTitle>Catálogo Técnico da Vitrine</DocumentTitle>
+
+            <DocumentText>
+              Acesse o catálogo completo com informações detalhadas sobre as
+              tecnologias desenvolvidas pela Rede SisAssistiva. O documento
+              reúne descrições técnicas, objetivos, estágios de desenvolvimento
+              e possibilidades de aplicação.
+            </DocumentText>
+
+            <DocumentCard
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <DocumentIcon>📄</DocumentIcon>
+              <h4>Catálogo Oficial – SisAssistiva</h4>
+              <p>Versão completa em PDF com todas as tecnologias mapeadas.</p>
+            </DocumentCard>
+
+            <PdfButton
+              href="/docs/catalogo-vitrine.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Abrir Catálogo Completo
+            </PdfButton>
+          </DocumentsSection>
         </Section>
       </Container>
     </PageWrapper>
