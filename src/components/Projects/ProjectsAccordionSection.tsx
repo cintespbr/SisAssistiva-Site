@@ -20,7 +20,7 @@ interface Project {
 
 // --- Styled Components ---
 const SectionWrapper = styled.section`
-  background: #f8f9fa;
+  background: #ffffff;
   padding: 80px 0;
   font-family: "Inter", sans-serif;
 `;

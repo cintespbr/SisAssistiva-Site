@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
+import ProjectsAccordionSection from "../Projects/ProjectsAccordionSection";
 
 /* =============================
    IMPORTAÇÃO DAS IMAGENS
@@ -501,7 +502,7 @@ export default function Vitrine() {
             </ThumbsWrapper>
           </CarouselWrapper>
         </Section>
-        <Section>
+        {/*<Section>
           <DocumentsSection>
             <DocumentTitle>Catálogo Técnico da Vitrine</DocumentTitle>
 
@@ -531,7 +532,8 @@ export default function Vitrine() {
               Abrir Catálogo Completo
             </PdfButton>
           </DocumentsSection>
-        </Section>
+        </Section>*/}
+        <ProjectsAccordionSection />
       </Container>
     </PageWrapper>
   );
