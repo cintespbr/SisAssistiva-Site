@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import heroImg from "../../assets/parceiros-hero.png";
 import sisLogo from "../../assets/logosis-hero.svg";
+import parceirosIMG from "../../assets/parceirosIMG.jpg";
 
 import cintesp from "../../assets/partners/cintesp.png";
 import sislab from "../../assets/partners/sislab.png";
@@ -98,12 +99,6 @@ const CardBox = styled.div`
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 `;
 
-const GrayPlaceholder = styled.div`
-  background: #e0e0e0;
-  border-radius: 15px;
-  height: 150px;
-`;
-
 const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -181,7 +176,15 @@ export default function Parthers() {
               </Col>
 
               <Col lg={4} className="mt-4 mt-lg-0">
-                <GrayPlaceholder />
+                <img
+                  src={parceirosIMG}
+                  alt="Parcerias"
+                  style={{
+                    borderRadius: "15px",
+                    height: "232px",
+                    width: "auto",
+                  }}
+                />
               </Col>
             </Row>
           </motion.div>

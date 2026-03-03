@@ -9,6 +9,7 @@ import MapaRedirect from "./components/Mapa/MapaRedirect";
 import ContactPage from "./components/Contact/ContactPage";
 import Parthers from "./components/Parthers/Parthers";
 import Vitrine from "./components/Vitrine/Vitrine";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/parceiros" element={<Parthers />} />
         <Route path="/vitrine" element={<Vitrine />} />
       </Routes>
+      <Footer />
       <VLibras />
     </MainLayout>
   );
