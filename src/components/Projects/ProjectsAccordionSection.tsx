@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Container, Spinner } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiSearch, FiChevronDown, FiChevronUp, FiFilter } from "react-icons/fi";
 
-// --- Interfaces ---
-interface Project {
-  id: number;
-  sigla: string;
-  categoria: string;
-  titulo: string;
-  instituicao: string;
-  coordenacao: string;
-  resumo: string;
-  cidade: string;
-  executora: string;
-  imagem: string | null;
-}
+import { projetos } from "../../data/projetos";
+import type { Projeto } from "../../data/projetos";
+/* ---------- Styled Components ---------- */
 
-// --- Styled Components ---
 const SectionWrapper = styled.section`
   background: #ffffff;
   padding: 80px 0;
@@ -33,9 +22,6 @@ const HeaderContainer = styled.div`
     font-weight: 700;
     color: #333;
     margin-bottom: 20px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   p {
@@ -70,10 +56,6 @@ const SearchWrapper = styled.div`
     border: 1px solid #e0e0e0;
     background: #eeeeee;
     outline: none;
-    transition: 0.3s;
-    &:focus {
-      border-color: #aaa;
-    }
   }
 
   svg {
@@ -94,12 +76,7 @@ const FilterButton = styled.button`
   border: 1px solid #e0e0e0;
   background: #eeeeee;
   color: #666;
-  font-weight: 500;
   cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    background: #e5e5e5;
-  }
 `;
 
 const AccordionCard = styled(motion.div)<{ $isOpen: boolean }>`
@@ -108,38 +85,26 @@ const AccordionCard = styled(motion.div)<{ $isOpen: boolean }>`
   border-radius: 25px;
   margin-bottom: 15px;
   overflow: hidden;
-  transition: background 0.3s ease;
 `;
 
 const AccordionHeader = styled.div`
   padding: 20px 30px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   cursor: pointer;
 
   h5 {
     margin: 0;
     font-size: 1.05rem;
     font-weight: 600;
-    color: #333;
-    padding-right: 20px;
-    line-height: 1.4;
-  }
-
-  svg {
-    font-size: 1.5rem;
-    color: #555;
-    flex-shrink: 0;
   }
 `;
 
 const ContentInner = styled.div`
-  padding: 0 30px 30px 30px;
+  padding: 30px;
   display: flex;
   gap: 30px;
   border-top: 1px solid #eee;
-  padding-top: 30px;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -151,7 +116,22 @@ const ProjectImage = styled.img`
   height: 180px;
   object-fit: cover;
   border-radius: 15px;
-  background: #eee;
+`;
+
+const Button = styled.a`
+  margin-top: 40px;
+  padding: 12px 35px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(135deg, #0e5c89, #8e1dbd);
+  color: white;
+  font-weight: 500;
+  transition: 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+    color: white;
+  }
 `;
 
 const ProjectInfo = styled.div`
@@ -161,7 +141,6 @@ const ProjectInfo = styled.div`
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 15px;
-    color: #333;
   }
 
   p {
@@ -174,67 +153,20 @@ const ProjectInfo = styled.div`
   .meta {
     font-size: 0.85rem;
     margin-bottom: 5px;
-    strong {
-      color: #333;
-    }
   }
 `;
 
-const ExploreButton = styled.button`
-  background: linear-gradient(90deg, #8ec5e9 0%, #c496c6 100%);
-  color: white;
-  border: none;
-  padding: 12px 40px;
-  border-radius: 30px;
-  font-weight: 600;
-  margin: 40px auto 0;
-  display: block;
-  cursor: pointer;
-  transition: transform 0.2s;
-  &:hover {
-    transform: scale(1.05);
-  }
-`;
+/* ---------- Component ---------- */
 
-// --- Componente Principal ---
 const ProjectsAccordionSection: React.FC = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
   const [activeId, setActiveId] = useState<number | null>(null);
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(true);
 
-  const API_URL = "http://localhost:3000";
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch(`${API_URL}/projects`);
-        const data = await response.json();
-        setProjects(data);
-      } catch (error) {
-        console.error("Erro ao buscar projetos:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProjects();
-  }, []);
-
-  const filteredProjects = projects.filter(
+  const filteredProjects = projetos.filter(
     (p) =>
       p.titulo.toLowerCase().includes(search.toLowerCase()) ||
       p.resumo.toLowerCase().includes(search.toLowerCase()),
   );
-
-  if (loading) {
-    return (
-      <SectionWrapper>
-        <Container className="text-center">
-          <Spinner animation="border" variant="secondary" />
-        </Container>
-      </SectionWrapper>
-    );
-  }
 
   return (
     <SectionWrapper>
@@ -243,13 +175,11 @@ const ProjectsAccordionSection: React.FC = () => {
           <h2>Inovação em Tecnologia Assistiva distribuída pelo Brasil</h2>
           <p>
             Os projetos do SisAssistiva representam o núcleo ativo da rede
-            nacional de inovação em Tecnologia Assistiva... distribuídos em
-            diferentes regiões do país, eles reúnem universidades, institutos de
-            ciência e tecnologia...
+            nacional de inovação em Tecnologia Assistiva.
           </p>
         </HeaderContainer>
 
-        <SearchControls>
+        {/* <SearchControls>
           <SearchWrapper>
             <FiSearch size={20} />
             <input
@@ -258,20 +188,17 @@ const ProjectsAccordionSection: React.FC = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
           </SearchWrapper>
+
           <FilterButton>
             <FiFilter /> Filtros
           </FilterButton>
-        </SearchControls>
+        </SearchControls> */}
 
-        {filteredProjects.map((project) => {
+        {filteredProjects.map((project: Projeto) => {
           const isOpen = activeId === project.id;
+
           return (
-            <AccordionCard
-              key={project.id}
-              $isOpen={isOpen}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
+            <AccordionCard key={project.id} $isOpen={isOpen}>
               <AccordionHeader
                 onClick={() => setActiveId(isOpen ? null : project.id)}
               >
@@ -288,18 +215,16 @@ const ProjectsAccordionSection: React.FC = () => {
                     transition={{ duration: 0.3 }}
                   >
                     <ContentInner>
-                      {project.imagem && (
-                        <ProjectImage
-                          src={`${API_URL}/${project.imagem}`}
-                          alt={project.titulo}
-                        />
-                      )}
+                      <ProjectImage src={project.imagem} alt={project.titulo} />
+
                       <ProjectInfo>
                         <h4>{project.titulo}</h4>
                         <p>{project.resumo}</p>
+
                         <div className="meta">
                           <strong>Coordenação:</strong> {project.coordenacao}
                         </div>
+
                         <div className="meta">
                           <strong>Instituição:</strong> {project.instituicao}
                         </div>
@@ -311,8 +236,15 @@ const ProjectsAccordionSection: React.FC = () => {
             </AccordionCard>
           );
         })}
-
-        <ExploreButton>Explorar mais projetos</ExploreButton>
+        <div className="text-center mt-4">
+          <Button
+            href="https://sisassistiva.cintespbr.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explorar mais projetos
+          </Button>
+        </div>
       </Container>
     </SectionWrapper>
   );
