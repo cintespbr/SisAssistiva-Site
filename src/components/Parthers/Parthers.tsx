@@ -20,7 +20,7 @@ const partners = [
   { id: 3, logo: futel, name: "FUTEL" },
   { id: 4, logo: finep, name: "FINEP" },
   { id: 5, logo: gov, name: "Governo Federal" },
-  { id: 6, logo: viver, name: "Viver" },
+  { id: 6, logo: viver, name: "Viver Sem Limite" },
   { id: 7, logo: ufu, name: "UFU" },
 ];
 
@@ -261,16 +261,6 @@ export default function Parthers() {
           </motion.div>
         </Container>
       </Section>
-
-      {/* FOOTER BANNER */}
-      <FooterBanner>
-        <Container>
-          <img src={sisLogo} alt="SisAssistiva" />
-          <p>
-            Conectando inovação, tecnologia e impacto social em todo o Brasil.
-          </p>
-        </Container>
-      </FooterBanner>
     </PageWrapper>
   );
 }
