@@ -502,37 +502,6 @@ export default function Vitrine() {
             </ThumbsWrapper>
           </CarouselWrapper>
         </Section>
-        {/*<Section>
-          <DocumentsSection>
-            <DocumentTitle>Catálogo Técnico da Vitrine</DocumentTitle>
-
-            <DocumentText>
-              Acesse o catálogo completo com informações detalhadas sobre as
-              tecnologias desenvolvidas pela Rede SisAssistiva. O documento
-              reúne descrições técnicas, objetivos, estágios de desenvolvimento
-              e possibilidades de aplicação.
-            </DocumentText>
-
-            <DocumentCard
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <DocumentIcon>📄</DocumentIcon>
-              <h4>Catálogo Oficial – SisAssistiva</h4>
-              <p>Versão completa em PDF com todas as tecnologias mapeadas.</p>
-            </DocumentCard>
-
-            <PdfButton
-              href="/docs/catalogo-vitrine.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Abrir Catálogo Completo
-            </PdfButton>
-          </DocumentsSection>
-        </Section>*/}
         <ProjectsAccordionSection />
       </Container>
     </PageWrapper>
