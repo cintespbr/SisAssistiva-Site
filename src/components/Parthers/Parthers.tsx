@@ -113,33 +113,6 @@ const GridWrapper = styled.div`
   }
 `;
 
-const Button = styled.button`
-  margin-top: 40px;
-  padding: 12px 35px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(135deg, #0e5c89, #8e1dbd);
-  color: white;
-  font-weight: 500;
-  transition: 0.3s ease;
-
-  &:hover {
-    opacity: 0.9;
-  }
-`;
-
-const FooterBanner = styled.section`
-  background: linear-gradient(135deg, #8e1dbd, #0e5c89);
-  padding: 80px 0;
-  text-align: center;
-  color: white;
-
-  img {
-    width: 180px;
-    margin-bottom: 20px;
-  }
-`;
-
 export default function Parthers() {
   return (
     <PageWrapper>
@@ -254,10 +227,6 @@ export default function Parthers() {
                 </PartnerCard>
               ))}
             </GridWrapper>
-
-            <div className="text-center">
-              <Button>Explorar mais parceiros</Button>
-            </div>
           </motion.div>
         </Container>
       </Section>
