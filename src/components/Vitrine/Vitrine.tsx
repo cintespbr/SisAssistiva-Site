@@ -33,6 +33,7 @@ import tecincluir from "../../assets/showcase/imagem_tecincluir.png";
 import reabnet from "../../assets/showcase/imagem_reabnet.jpg";
 import roboptica from "../../assets/showcase/imagem_roboptica.png";
 import vitrineIMG from "../../assets/section1-vitrine.avif";
+import heroVitrine from "../../assets/hero-vitrine.png";
 
 /* =============================
    ESTILOS
@@ -56,12 +57,6 @@ const Title = styled.h2`
 
 const Text = styled.p`
   line-height: 1.7;
-`;
-
-const GrayBox = styled.div`
-  background: #e0e0e0;
-  border-radius: 20px;
-  height: 220px;
 `;
 
 const CarouselWrapper = styled.div`
@@ -171,59 +166,54 @@ const ThumbImage = styled.img`
   border-radius: 8px;
 `;
 
-const PdfButton = styled.a`
-  display: inline-block;
-  padding: 14px 28px;
-  border-radius: 40px;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-  background: linear-gradient(90deg, #4da6ff, #b56dff);
-  transition: 0.3s ease;
+/* =============================
+   HERO
+============================= */
 
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-`;
-
-const DocumentsSection = styled.section`
-  background: #f7f9fc;
-  padding: 80px 40px;
-  border-radius: 24px;
+const HeroSection = styled.section`
+  position: relative;
+  height: 60vh;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  overflow: hidden;
 `;
 
-const DocumentTitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 700;
-  color: #0082d3;
-  margin-bottom: 16px;
+const HeroBackground = styled.img`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);
+  transform: scale(1.05);
 `;
 
-const DocumentText = styled.p`
-  max-width: 700px;
-  margin: 0 auto 32px auto;
-  line-height: 1.7;
+const HeroOverlay = styled.div`
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
 `;
 
-const DocumentCard = styled(motion.div)`
-  background: white;
-  padding: 40px;
-  border-radius: 20px;
-  max-width: 500px;
-  margin: 0 auto 32px auto;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-  transition: 0.3s ease;
-
-  &:hover {
-    transform: translateY(-6px);
-  }
+const HeroContent = styled(motion.div)`
+  position: relative;
+  z-index: 2;
+  color: white;
 `;
 
-const DocumentIcon = styled.div`
+const HeroTitle = styled.h1`
   font-size: 3rem;
-  margin-bottom: 16px;
+  font-weight: 700;
+
+  @media (max-width: 992px) {
+    font-size: 2.2rem;
+  }
+
+  @media (max-width: 576px) {
+    font-size: 1.8rem;
+  }
 `;
 
 /* =============================
@@ -420,90 +410,110 @@ export default function Vitrine() {
   };
 
   return (
-    <PageWrapper>
-      <Container>
-        {/* INTRO */}
-        <Section>
-          <Row className="align-items-center">
-            <Col lg={8}>
-              <Title>O que você encontra na Vitrine SisAssistiva</Title>
-              <Text>
-                <li>Tecnologias assistivas desenvolvidas no âmbito da rede</li>
-                <li>Protótipos e soluções em fase de desenvolvimento</li>
-                <li>
-                  Resultados tecnológicos com potencial de aplicação prática
-                </li>
-                <li>
-                  Iniciativas voltadas à transferência tecnológica e inovação
-                </li>
+    <>
+      <HeroSection>
+        <HeroBackground src={heroVitrine} alt="Vitrine SisAssistiva" />
+        <HeroOverlay />
+
+        <HeroContent
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <HeroTitle>Vitrine do SisAssistiva</HeroTitle>
+        </HeroContent>
+      </HeroSection>
+
+      <PageWrapper>
+        <PageWrapper>
+          <Container>
+            {/* INTRO */}
+            <Section>
+              <Row className="align-items-center">
+                <Col lg={8}>
+                  <Title>O que você encontra na Vitrine SisAssistiva</Title>
+                  <Text>
+                    <li>
+                      Tecnologias assistivas desenvolvidas no âmbito da rede
+                    </li>
+                    <li>Protótipos e soluções em fase de desenvolvimento</li>
+                    <li>
+                      Resultados tecnológicos com potencial de aplicação prática
+                    </li>
+                    <li>
+                      Iniciativas voltadas à transferência tecnológica e
+                      inovação
+                    </li>
+                  </Text>
+                  <Text>
+                    As informações apresentadas buscam facilitar a compreensão
+                    do estágio de cada tecnologia, seus objetivos e suas
+                    possibilidades de uso ou evolução.
+                  </Text>
+                </Col>
+                <Col lg={4} className="mt-4 mt-lg-0">
+                  <img
+                    src={vitrineIMG}
+                    alt="Imagem ilustrativa da Vitrine SisAssistiva"
+                    style={{ width: "100%", borderRadius: "16px" }}
+                  />
+                </Col>
+              </Row>
+            </Section>
+
+            {/* CARROSSEL */}
+            <Section>
+              <Title className="text-center mb-4">
+                Conheça as tecnologias assistivas em desenvolvimento
+              </Title>
+              <Text className="text-center mb-4">
+                A Vitrine SisAssistiva tem como objetivo dar visibilidade às
+                entregas da rede, estimular conexões estratégicas e apoiar a
+                aproximação entre ciência, setor produtivo e sociedade. Ela
+                também funciona como um ponto de referência para gestores
+                públicos, empresas, investidores e demais interessados em
+                inovação em Tecnologia Assistiva.
               </Text>
-              <Text>
-                As informações apresentadas buscam facilitar a compreensão do
-                estágio de cada tecnologia, seus objetivos e suas possibilidades
-                de uso ou evolução.
-              </Text>
-            </Col>
-            <Col lg={4} className="mt-4 mt-lg-0">
-              <img
-                src={vitrineIMG}
-                alt="Imagem ilustrativa da Vitrine SisAssistiva"
-                style={{ width: "100%", borderRadius: "16px" }}
-              />
-            </Col>
-          </Row>
-        </Section>
+              <CarouselWrapper>
+                <NavArrow side="left" onClick={prevSlide}>
+                  ‹
+                </NavArrow>
 
-        {/* CARROSSEL */}
-        <Section>
-          <Title className="text-center mb-4">
-            Conheça as tecnologias assistivas em desenvolvimento
-          </Title>
-          <Text className="text-center mb-4">
-            A Vitrine SisAssistiva tem como objetivo dar visibilidade às
-            entregas da rede, estimular conexões estratégicas e apoiar a
-            aproximação entre ciência, setor produtivo e sociedade. Ela também
-            funciona como um ponto de referência para gestores públicos,
-            empresas, investidores e demais interessados em inovação em
-            Tecnologia Assistiva.
-          </Text>
-          <CarouselWrapper>
-            <NavArrow side="left" onClick={prevSlide}>
-              ‹
-            </NavArrow>
-
-            <Slide
-              key={current}
-              initial={{ opacity: 0, x: 24 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <SlideImage src={products[current].image} />
-              <GradientBottom />
-              <SlideContent>
-                <h3>{products[current].title}</h3>
-                <p>{products[current].description}</p>
-              </SlideContent>
-            </Slide>
-
-            <NavArrow side="right" onClick={nextSlide}>
-              ›
-            </NavArrow>
-
-            <ThumbsWrapper>
-              {products.map((product, index) => (
-                <ThumbButton
-                  key={product.id}
-                  active={index === current}
-                  onClick={() => setCurrent(index)}
+                <Slide
+                  key={current}
+                  initial={{ opacity: 0, x: 24 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
                 >
-                  <ThumbImage src={product.image} />
-                </ThumbButton>
-              ))}
-            </ThumbsWrapper>
-          </CarouselWrapper>
-        </Section>
-        <ProjectsAccordionSection />
-      </Container>
-    </PageWrapper>
+                  <SlideImage src={products[current].image} />
+                  <GradientBottom />
+                  <SlideContent>
+                    <h3>{products[current].title}</h3>
+                    <p>{products[current].description}</p>
+                  </SlideContent>
+                </Slide>
+
+                <NavArrow side="right" onClick={nextSlide}>
+                  ›
+                </NavArrow>
+
+                <ThumbsWrapper>
+                  {products.map((product, index) => (
+                    <ThumbButton
+                      key={product.id}
+                      active={index === current}
+                      onClick={() => setCurrent(index)}
+                    >
+                      <ThumbImage src={product.image} />
+                    </ThumbButton>
+                  ))}
+                </ThumbsWrapper>
+              </CarouselWrapper>
+            </Section>
+            <ProjectsAccordionSection />
+          </Container>
+        </PageWrapper>
+      </PageWrapper>
+    </>
   );
 }
