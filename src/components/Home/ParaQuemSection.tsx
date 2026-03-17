@@ -104,7 +104,7 @@ const fadeRight: Variants = {
 };
 
 const ParaQuemSection: React.FC = () => {
-  const cards = [
+  /* const cards = [
     {
       title: "Vitrine SisAssistiva",
       text: "Portfólio de soluções, tecnologias e iniciativas desenvolvidas no âmbito da rede SisAssistiva, reunindo projetos, protótipos, pesquisas aplicadas e resultados com impacto social.",
@@ -129,7 +129,7 @@ const ParaQuemSection: React.FC = () => {
       button: "Ver eventos",
       bg: atualizacoes,
     },
-  ];
+  ];*/
 
   return (
     <SectionWrapper>
@@ -173,7 +173,7 @@ const ParaQuemSection: React.FC = () => {
           </Col>
         </Row>
 
-        <CardsWrapper>
+        {/* <CardsWrapper>
           <Row>
             {cards.map((card, index) => (
               <Col lg={3} md={6} key={index} className="mb-4">
@@ -191,7 +191,7 @@ const ParaQuemSection: React.FC = () => {
               </Col>
             ))}
           </Row>
-        </CardsWrapper>
+        </CardsWrapper>*/}
       </Container>
     </SectionWrapper>
   );
