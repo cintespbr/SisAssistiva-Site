@@ -12,6 +12,7 @@ import finep from "../../assets/partners/finep.png";
 import gov from "../../assets/partners/gov.png";
 import viver from "../../assets/partners/viver.png";
 import ufu from "../../assets/partners/ufu.png";
+import logoCNPQ from "../../assets/partners/logo-cnpq.png";
 
 const SectionWrapper = styled.section`
   background: #ffffff;
@@ -112,6 +113,7 @@ const PartnersSection: React.FC = () => {
     { name: "Gov", logo: gov },
     { name: "Viver", logo: viver },
     { name: "Ufu", logo: ufu },
+    { name: "CNPq", logo: logoCNPQ },
   ];
 
   return (
