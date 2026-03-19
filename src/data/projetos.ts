@@ -1,3 +1,10 @@
+import bioprot from "../assets/showcase/imagem_bioprot.png";
+import ufcgcert from "../assets/showcase/imagem_ufcgcert.png";
+import dreanns from "../assets/showcase/imagem_dreanns.jpg";
+import tecnoaging from "../assets/showcase/imagem_tecnoaging.png";
+import fabict_cer from "../assets/showcase/imagem_fabict_cer.png";
+import amputsus from "../assets/showcase/imagem_amputsus.jpg";
+
 export interface Projeto {
   id: number;
   titulo: string;
@@ -12,7 +19,7 @@ export const projetos: Projeto[] = [
     id: 1,
     titulo:
       "Desenvolvimento de sistemas para melhoria da usabilidade e incorporação de próteses de membro superior",
-    imagem: "/src/assets/showcase/imagem_bioprot.png",
+    imagem: bioprot,
     instituicao: "Universidade Federal de Minas Gerais",
     coordenacao: "Claysson Bruno Santos Vimieiro",
     resumo:
@@ -22,7 +29,7 @@ export const projetos: Projeto[] = [
     id: 2,
     titulo:
       "Psilocibina para auxiliar no desenvolvimento de pessoas com transtorno do espectro autista (TEA)",
-    imagem: "/src/assets/showcase/imagem_ufcgcert.png",
+    imagem: ufcgcert,
     instituicao: "Universidade Federal de Campina Grande",
     coordenacao: "Marcus Vinícius Lia Fook",
     resumo:
@@ -32,7 +39,7 @@ export const projetos: Projeto[] = [
     id: 3,
     titulo:
       "Dispositivos de reabilitação e assistência em neurociência e neurotecnologias",
-    imagem: "/src/assets/showcase/imagem_dreanns.jpg",
+    imagem: dreanns,
     instituicao: "Universidade Estadual de Campinas",
     coordenacao: "Coordenação não informada",
     resumo:
@@ -42,7 +49,7 @@ export const projetos: Projeto[] = [
     id: 4,
     titulo:
       "Tecnologia assistiva na avaliação clínico-funcional integrada e prescrição de exercícios para idosos",
-    imagem: "/src/assets/showcase/imagem_tecnoaging.png",
+    imagem: tecnoaging,
     instituicao: "Universidade Federal do Paraná",
     coordenacao: "Coordenação não informada",
     resumo:
@@ -52,7 +59,7 @@ export const projetos: Projeto[] = [
     id: 5,
     titulo:
       "Automação na fabricação de órteses e próteses personalizadas para redução de custo e tempo",
-    imagem: "/src/assets/showcase/imagem_fabict_cer.png",
+    imagem: fabict_cer,
     instituicao: "Universidade Federal dos Vales do Jequitinhonha e Mucuri",
     coordenacao: "Libardo Andrés González Torres",
     resumo:
@@ -62,7 +69,7 @@ export const projetos: Projeto[] = [
     id: 6,
     titulo:
       "Recurso tecnológico inovador para soluções protéticas em amputados de membros inferiores usuários do SUS",
-    imagem: "/src/assets/showcase/imagem_amputsus.jpg",
+    imagem: amputsus,
     instituicao: "Universidade do Estado de Santa Catarina",
     coordenacao: "Coordenação não informada",
     resumo:
