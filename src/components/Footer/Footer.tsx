@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-/*import footerBg from "../../assets/rodape.png";*/
 import sisLogo from "../../assets/sislogohorizontal.svg";
 
 const FooterWrapper = styled.footer`
@@ -70,16 +69,6 @@ const SocialLinks = styled.div`
 const Copyright = styled.div`
   font-size: 0.9rem;
   color: #777;
-`;
-
-const BackgroundImage = styled.img`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  max-height: 360px;
-  object-fit: cover;
-  z-index: 1;
-  pointer-events: none;
 `;
 
 export default function Footer() {

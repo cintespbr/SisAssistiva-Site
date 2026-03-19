@@ -3,7 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import heroImg from "../../assets/parceiros-hero.png";
-import sisLogo from "../../assets/logosis-hero.svg";
 import parceirosIMG from "../../assets/parceirosIMG.jpg";
 
 import cintesp from "../../assets/partners/cintesp.png";

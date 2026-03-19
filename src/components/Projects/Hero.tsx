@@ -3,9 +3,7 @@ import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-
 import heroProjects from "../../assets/hero-projetos.png";
-import heroLogo from "../../assets/logosis-hero.svg";
 
 const SectionWrapper = styled.section`
   position: relative;
