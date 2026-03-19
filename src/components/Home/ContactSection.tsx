@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import { useFormContato } from "../Contact/useFormContato";
 
 const SectionWrapper = styled.section`
   background: linear-gradient(135deg, #8e1dbd, #0e5c89);
@@ -98,23 +99,8 @@ const fadeRight: Variants = {
 };
 
 const ContactSection: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
-  };
+  const { name, setName, email, setEmail, phone, setPhone, message, setMessage, handleSubmit } =
+    useFormContato();
 
   return (
     <SectionWrapper>
@@ -130,32 +116,32 @@ const ContactSection: React.FC = () => {
             >
               <Input
                 type="text"
-                name="name"
+                name="nome"
                 placeholder="Nome"
-                value={formData.name}
-                onChange={handleChange}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 required
               />
               <Input
                 type="email"
                 name="email"
                 placeholder="E-mail"
-                value={formData.email}
-                onChange={handleChange}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
               <Input
                 type="tel"
-                name="phone"
+                name="telefone"
                 placeholder="Telefone"
-                value={formData.phone}
-                onChange={handleChange}
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
               />
               <TextArea
-                name="subject"
+                name="assunto"
                 placeholder="Assunto"
-                value={formData.subject}
-                onChange={handleChange}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               />
               <Button type="submit">Enviar</Button>
             </FormWrapper>

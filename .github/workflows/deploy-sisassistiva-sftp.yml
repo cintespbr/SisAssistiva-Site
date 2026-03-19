@@ -28,7 +28,7 @@ jobs:
 
       - name: Build App
         env:
-          REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
+          VITE_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
         run: npm run build
 
       - name: deploy file to server Prod
