@@ -10,6 +10,7 @@ import ContactPage from "./components/Contact/ContactPage";
 import Parthers from "./components/Parthers/Parthers";
 import Vitrine from "./components/Vitrine/Vitrine";
 import Footer from "./components/Footer/Footer";
+import NoticiasEventos from "./components/NoticiasEventos/NoticiasEventos";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         <Route path="/contato" element={<ContactPage />} />
         <Route path="/parceiros" element={<Parthers />} />
         <Route path="/vitrine" element={<Vitrine />} />
+        <Route path="/noticias" element={<NoticiasEventos />} />
       </Routes>
       <Footer />
       <VLibras />
