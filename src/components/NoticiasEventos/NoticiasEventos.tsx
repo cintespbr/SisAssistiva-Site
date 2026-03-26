@@ -16,6 +16,7 @@ import {
 import noticia1 from "../../assets/news/noticia1.jpg";
 import noticia2 from "../../assets/news/noticia2.png";
 import noticia3 from "../../assets/news/noticia3.jfif";
+import noticia4 from "../../assets/news/noticia4.jfif";
 
 /* =============================
    COMPONENTE
@@ -53,6 +54,16 @@ export default function NoticiasEventos() {
         "Focado na autonomia de pessoas com deficiência, evento gratuito na Arena Sabiazinho reúne 26 laboratórios para debater transferência tecnológica e sela a criação da Praça da Ciência e do Polo de Manufatura Aditiva em TA",
       image: noticia2,
       link: "https://comunica.ufu.br/noticias/2026/03/ufu-lidera-evento-nacional-em-uberlandia-para-conectar-inovacoes-em-tecnologia",
+    },
+    {
+      id: 5,
+      type: "noticia",
+      title:
+        "Uberlândia sedia evento nacional de tecnologia assistiva e inovação",
+      description:
+        "Arena Sabiazinho recebe encontro com foco em inclusão, reunindo soluções para pessoas com deficiência e programação do Startup Day 2026, com debates sobre inteligência artificial, empreendedorismo e investimentos.",
+      image: noticia4,
+      link: "https://g1.globo.com/mg/triangulo-mineiro/mg1-uberlandia/video/uberlandia-sedia-evento-nacional-de-tecnologia-assistiva-e-inovacao-14453288.ghtml",
     },
   ];
 
