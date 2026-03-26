@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Container } from "react-bootstrap";
-import { useState } from "react";
 import sisLogo from "../../assets/logosis-hero.svg";
 import backgroundImg from "../../assets/contato-bg.png"; // coloque sua imagem aqui
+import { useFormContato } from "./useFormContato";
 
 const PageWrapper = styled.section`
   min-height: 100vh;
@@ -115,23 +115,8 @@ const Logo = styled.img`
 `;
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    nome: "",
-    email: "",
-    telefone: "",
-    assunto: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
-  };
+  const { name, setName, email, setEmail, phone, setPhone, message, setMessage, handleSubmit } =
+    useFormContato();
 
   return (
     <PageWrapper>
@@ -156,30 +141,30 @@ export default function ContactPage() {
               type="text"
               name="nome"
               placeholder="Nome"
-              value={formData.nome}
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
             />
             <Input
               type="email"
               name="email"
               placeholder="E-mail"
-              value={formData.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <Input
               type="tel"
               name="telefone"
               placeholder="Telefone"
-              value={formData.telefone}
-              onChange={handleChange}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
             <TextArea
               name="assunto"
               placeholder="Assunto"
-              value={formData.assunto}
-              onChange={handleChange}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
             <Button type="submit">Enviar</Button>
           </FormWrapper>
