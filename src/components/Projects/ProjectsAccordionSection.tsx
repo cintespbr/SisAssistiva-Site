@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Container } from "react-bootstrap";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiSearch, FiChevronDown, FiChevronUp, FiFilter } from "react-icons/fi";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 
 import { projetos } from "../../data/projetos";
 import type { Projeto } from "../../data/projetos";
@@ -31,52 +31,6 @@ const HeaderContainer = styled.div`
     max-width: 850px;
     margin: 0 auto;
   }
-`;
-
-const SearchControls = styled.div`
-  display: flex;
-  gap: 15px;
-  margin-bottom: 40px;
-  justify-content: center;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const SearchWrapper = styled.div`
-  position: relative;
-  flex: 1;
-  max-width: 700px;
-
-  input {
-    width: 100%;
-    padding: 12px 20px 12px 50px;
-    border-radius: 30px;
-    border: 1px solid #e0e0e0;
-    background: #eeeeee;
-    outline: none;
-  }
-
-  svg {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #888;
-  }
-`;
-
-const FilterButton = styled.button`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 25px;
-  border-radius: 30px;
-  border: 1px solid #e0e0e0;
-  background: #eeeeee;
-  color: #666;
-  cursor: pointer;
 `;
 
 const AccordionCard = styled(motion.div)<{ $isOpen: boolean }>`
@@ -160,7 +114,7 @@ const ProjectInfo = styled.div`
 
 const ProjectsAccordionSection: React.FC = () => {
   const [activeId, setActiveId] = useState<number | null>(null);
-  const [search, setSearch] = useState("");
+  const [search] = useState("");
 
   const filteredProjects = projetos.filter(
     (p) =>
@@ -178,21 +132,6 @@ const ProjectsAccordionSection: React.FC = () => {
             nacional de inovação em Tecnologia Assistiva.
           </p>
         </HeaderContainer>
-
-        {/* <SearchControls>
-          <SearchWrapper>
-            <FiSearch size={20} />
-            <input
-              placeholder="Pesquisar projeto"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </SearchWrapper>
-
-          <FilterButton>
-            <FiFilter /> Filtros
-          </FilterButton>
-        </SearchControls> */}
 
         {filteredProjects.map((project: Projeto) => {
           const isOpen = activeId === project.id;
