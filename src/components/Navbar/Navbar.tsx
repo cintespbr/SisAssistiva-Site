@@ -73,7 +73,7 @@ const Navbar = () => {
         <BSNavbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center">
             <StyledNavLink to="/">Home</StyledNavLink>
-            {/*<StyledNavLink to="/mapa-interativo">Mapa Interativo</StyledNavLink>
+            <StyledNavLink to="/mapa-interativo">Mapa Interativo</StyledNavLink>
 
             <StyledDropdown title="Soluções" id="solucoes-dropdown">
               <NavDropdown.Item as={NavLink} to="/projetos-destaque">
@@ -82,7 +82,7 @@ const Navbar = () => {
               <NavDropdown.Item as={NavLink} to="/mapa-interativo">
                 Mapa Interativo
               </NavDropdown.Item>
-            </StyledDropdown>*/}
+            </StyledDropdown>
 
             <StyledDropdown title="Mercado" id="mercado-dropdown">
               <NavDropdown.Item as={NavLink} to="/vitrine">
