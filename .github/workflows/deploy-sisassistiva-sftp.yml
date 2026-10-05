@@ -1,0 +1,43 @@
+name: Deploy Mapa SisAssistiva Via SFTP
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: "20.x"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Clean and install dependencies
+        run: |
+          rm -rf node_modules package-lock.json
+          npm cache clean --force
+          npm install --legacy-peer-deps
+
+      - name: Build App
+        env:
+          VITE_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
+        run: npm run build
+
+      - name: deploy file to server Prod
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          username: "root"
+          server: "${{ secrets.FTP_SERVER_PROD }}"
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          local_path: "./dist/*"
+          remote_path: "/home/sisassistiva/htdocs/sisassistiva.org/"
+          sftpArgs: "-o ConnectTimeout=5"
+
