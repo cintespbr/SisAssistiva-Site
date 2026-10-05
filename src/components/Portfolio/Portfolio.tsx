@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Container } from "react-bootstrap";
 import { portfolio } from "../../data/portfolio";
 import PdfFlipbook from "./PdfFlipbook";
+import Transcricao from "./Transcricao";
 import { useTranscricao } from "./useTranscricao";
 import { useLeituraEmVoz } from "./useLeituraEmVoz";
 
@@ -129,23 +130,6 @@ const PageText = styled.div`
 
   p:last-child {
     margin-bottom: 0;
-  }
-`;
-
-const Transcript = styled.div`
-  details {
-    border-bottom: 1px solid #e3e8ed;
-    padding: 10px 0;
-  }
-
-  summary {
-    cursor: pointer;
-    font-weight: 600;
-    color: #0082d3;
-  }
-
-  details > div {
-    margin-top: 12px;
   }
 `;
 
@@ -340,31 +324,11 @@ export default function Portfolio() {
       </Block>
 
       <Block id="portfolio-transcricao" title="Transcrição completa em texto">
-        {erro && <p>Não foi possível carregar a transcrição.</p>}
-        {!erro && paginas.length === 0 && <p>Carregando transcrição…</p>}
-        <Transcript>
-          {paginas.map((paragrafos, i) => (
-            <details key={i}>
-              <summary>
-                Página {i + 1}
-                {total ? ` de ${total}` : ""}
-              </summary>
-              <div>
-                {descricao(i + 1) && (
-                  <p>
-                    <strong>Descrição das imagens:</strong> {descricao(i + 1)}
-                  </p>
-                )}
-                {paragrafos.length === 0 && !descricao(i + 1) && (
-                  <p>Página com apenas imagens ou ilustrações.</p>
-                )}
-                {paragrafos.map((p, j) => (
-                  <p key={j}>{p}</p>
-                ))}
-              </div>
-            </details>
-          ))}
-        </Transcript>
+        <Transcricao
+          paginas={paginas}
+          descricoes={audiodescricaoPorPagina}
+          status={erro ? "erro" : paginas.length === 0 ? "carregando" : "ok"}
+        />
       </Block>
     </PageWrapper>
   );
