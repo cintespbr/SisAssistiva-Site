@@ -111,7 +111,7 @@ const SlideContent = styled.div`
   }
 `;
 
-const NavArrow = styled.button<{ $side: "left" | "right" }>`
+const NavArrow = styled.button<{ side: "left" | "right" }>`
   position: absolute;
   top: 37%;
   transform: translateY(-50%);
@@ -122,10 +122,10 @@ const NavArrow = styled.button<{ $side: "left" | "right" }>`
   cursor: pointer;
   z-index: 3;
 
-  ${({ $side }) => ($side === "left" ? "left: -93px;" : "right: -93px;")}
+  ${({ side }) => (side === "left" ? "left: -93px;" : "right: -93px;")}
 
   @media (max-width: 992px) {
-    ${({ $side }) => ($side === "left" ? "left: 8px;" : "right: 8px;")}
+    ${({ side }) => (side === "left" ? "left: 8px;" : "right: 8px;")}
     font-size: 36px;
     color: #ffffff;
   }
@@ -149,11 +149,11 @@ const ThumbsWrapper = styled.div`
   }
 `;
 
-const ThumbButton = styled.button<{ $active: boolean }>`
+const ThumbButton = styled.button<{ active: boolean }>`
   border: none;
   background: transparent;
   cursor: pointer;
-  opacity: ${({ $active }) => ($active ? 1 : 0.5)};
+  opacity: ${({ active }) => (active ? 1 : 0.5)};
   transition: 0.3s ease;
 
   flex: 0 0 auto;
@@ -425,14 +425,14 @@ export default function Vitrine() {
       </HeroSection>
 
       <PageWrapper>
-        <div>
+        <PageWrapper>
           <Container>
             {/* INTRO */}
             <Section>
               <Row className="align-items-center">
                 <Col lg={8}>
                   <Title>O que você encontra na Vitrine SisAssistiva</Title>
-                  <ul>
+                  <Text>
                     <li>
                       Tecnologias assistivas desenvolvidas no âmbito da rede
                     </li>
@@ -444,7 +444,7 @@ export default function Vitrine() {
                       Iniciativas voltadas à transferência tecnológica e
                       inovação
                     </li>
-                  </ul>
+                  </Text>
                   <Text>
                     As informações apresentadas buscam facilitar a compreensão
                     do estágio de cada tecnologia, seus objetivos e suas
@@ -475,12 +475,7 @@ export default function Vitrine() {
                 inovação em Tecnologia Assistiva.
               </Text>
               <CarouselWrapper>
-                <NavArrow
-                  $side="left"
-                  type="button"
-                  aria-label="Projeto anterior"
-                  onClick={prevSlide}
-                >
+                <NavArrow side="left" onClick={prevSlide}>
                   ‹
                 </NavArrow>
 
@@ -490,10 +485,7 @@ export default function Vitrine() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <SlideImage
-                    src={products[current].image}
-                    alt={products[current].title}
-                  />
+                  <SlideImage src={products[current].image} />
                   <GradientBottom />
                   <SlideContent>
                     <h3>{products[current].title}</h3>
@@ -501,12 +493,7 @@ export default function Vitrine() {
                   </SlideContent>
                 </Slide>
 
-                <NavArrow
-                  $side="right"
-                  type="button"
-                  aria-label="Próximo projeto"
-                  onClick={nextSlide}
-                >
+                <NavArrow side="right" onClick={nextSlide}>
                   ›
                 </NavArrow>
 
@@ -514,13 +501,10 @@ export default function Vitrine() {
                   {products.map((product, index) => (
                     <ThumbButton
                       key={product.id}
-                      $active={index === current}
-                      type="button"
-                      aria-label={`Ver projeto: ${product.title}`}
-                      aria-current={index === current}
+                      active={index === current}
                       onClick={() => setCurrent(index)}
                     >
-                      <ThumbImage src={product.image} alt="" />
+                      <ThumbImage src={product.image} />
                     </ThumbButton>
                   ))}
                 </ThumbsWrapper>
@@ -528,7 +512,7 @@ export default function Vitrine() {
             </Section>
             <ProjectsAccordionSection />
           </Container>
-        </div>
+        </PageWrapper>
       </PageWrapper>
     </>
   );

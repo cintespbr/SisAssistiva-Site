@@ -11,51 +11,24 @@ declare module "react" {
   }
 }
 
-declare global {
-  interface Window {
-    VLibras?: { Widget: new (url: string) => unknown };
-  }
-}
-
-const VLIBRAS_SCRIPT_SRC = "https://vlibras.gov.br/app/vlibras-plugin.js";
-const VLIBRAS_APP_URL = "https://vlibras.gov.br/app";
-
-// Garante que o widget seja criado uma única vez, mesmo com StrictMode
-// (que monta o componente duas vezes em desenvolvimento).
-let widgetStarted = false;
-
-const startWidget = () => {
-  if (widgetStarted || !window.VLibras) return;
-  widgetStarted = true;
-  new window.VLibras.Widget(VLIBRAS_APP_URL);
-};
-
 const VLibras = () => {
   useEffect(() => {
-    if (window.VLibras) {
-      startWidget();
-      return;
-    }
+    const script = document.createElement("script");
+    script.src = "https://vlibras.gov.br/app/vlibras-plugin.js";
+    script.async = true;
 
-    let script = document.querySelector<HTMLScriptElement>(
-      `script[src="${VLIBRAS_SCRIPT_SRC}"]`,
-    );
+    script.onload = () => {
+      // @ts-ignore
+      new window.VLibras.Widget("https://vlibras.gov.br/app");
+    };
 
-    if (!script) {
-      script = document.createElement("script");
-      script.src = VLIBRAS_SCRIPT_SRC;
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
-    script.addEventListener("load", startWidget);
-    return () => script?.removeEventListener("load", startWidget);
+    document.body.appendChild(script);
   }, []);
 
   return (
     <div vw="enabled">
       <div vw-access-button="active"></div>
-      <div vw-plugin-wrapper="">
+      <div vw-plugin-wrapper>
         <div className="vw-plugin-top-wrapper"></div>
       </div>
     </div>

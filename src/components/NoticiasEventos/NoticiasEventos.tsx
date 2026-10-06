@@ -105,10 +105,10 @@ export default function NoticiasEventos() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
               >
-                <CardImage src={item.image} alt="" />
+                <CardImage src={item.image} />
 
                 <CardContent>
-                  <Badge $type={item.type}>
+                  <Badge type={item.type}>
                     {item.type === "evento" ? "Evento" : "Notícia"}
                   </Badge>
 

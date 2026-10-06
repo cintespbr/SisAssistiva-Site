@@ -115,7 +115,7 @@ const Logo = styled.img`
 `;
 
 export default function ContactPage() {
-  const { name, setName, email, setEmail, phone, setPhone, message, setMessage, status, handleSubmit } =
+  const { name, setName, email, setEmail, phone, setPhone, message, setMessage, handleSubmit } =
     useFormContato();
 
   return (
@@ -141,7 +141,6 @@ export default function ContactPage() {
               type="text"
               name="nome"
               placeholder="Nome"
-              aria-label="Nome"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -150,7 +149,6 @@ export default function ContactPage() {
               type="email"
               name="email"
               placeholder="E-mail"
-              aria-label="E-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -159,27 +157,16 @@ export default function ContactPage() {
               type="tel"
               name="telefone"
               placeholder="Telefone"
-              aria-label="Telefone"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
             <TextArea
               name="assunto"
-              required
               placeholder="Assunto"
-              aria-label="Assunto"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
-            <Button type="submit" disabled={status === "sending"}>
-              {status === "sending" ? "Enviando..." : "Enviar"}
-            </Button>
-            <p role="status" aria-live="polite" style={{ margin: 0 }}>
-              {status === "success" && "Mensagem enviada com sucesso!"}
-              {status === "error" &&
-                "Não foi possível enviar a mensagem. Tente novamente."}
-            </p>
-
+            <Button type="submit">Enviar</Button>
           </FormWrapper>
 
           <Logo src={sisLogo} alt="SisAssistiva Logo" />

@@ -53,9 +53,7 @@ const HeroSection: React.FC = () => {
               variants={textVariants}
               initial="hidden"
               animate="visible"
-            >
-              Produtos Destaque
-            </Headline>
+            ></Headline>
           </Col>
         </Row>
       </Container>

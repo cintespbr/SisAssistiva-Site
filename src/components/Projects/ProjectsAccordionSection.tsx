@@ -139,16 +139,7 @@ const ProjectsAccordionSection: React.FC = () => {
           return (
             <AccordionCard key={project.id} $isOpen={isOpen}>
               <AccordionHeader
-                role="button"
-                tabIndex={0}
-                aria-expanded={isOpen}
                 onClick={() => setActiveId(isOpen ? null : project.id)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
-                    e.preventDefault();
-                    setActiveId(isOpen ? null : project.id);
-                  }
-                }}
               >
                 <h5>{project.titulo}</h5>
                 {isOpen ? <FiChevronUp /> : <FiChevronDown />}
