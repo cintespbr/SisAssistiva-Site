@@ -75,14 +75,14 @@ export const CardContent = styled.div`
   }
 `;
 
-export const Badge = styled.span<{ type: string }>`
+export const Badge = styled.span<{ $type: string }>`
   display: inline-block;
   margin-bottom: 10px;
   padding: 5px 10px;
   border-radius: 20px;
   font-size: 0.75rem;
 
-  background: ${({ type }) => (type === "evento" ? "#ffe0b2" : "#d1ecf1")};
+  background: ${({ $type }) => ($type === "evento" ? "#ffe0b2" : "#d1ecf1")};
 
-  color: ${({ type }) => (type === "evento" ? "#e65100" : "#0c5460")};
+  color: ${({ $type }) => ($type === "evento" ? "#e65100" : "#0c5460")};
 `;

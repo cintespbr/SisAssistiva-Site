@@ -11,6 +11,7 @@ import Parthers from "./components/Parthers/Parthers";
 import Vitrine from "./components/Vitrine/Vitrine";
 import Footer from "./components/Footer/Footer";
 import NoticiasEventos from "./components/NoticiasEventos/NoticiasEventos";
+import Portfolio from "./components/Portfolio/Portfolio";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/parceiros" element={<Parthers />} />
         <Route path="/vitrine" element={<Vitrine />} />
         <Route path="/noticias" element={<NoticiasEventos />} />
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
       <Footer />
       <VLibras />

@@ -92,7 +92,8 @@ const Navbar = () => {
                 Parceiros
               </NavDropdown.Item>
             </StyledDropdown>
-            <StyledNavLink to="/noticias">Noticias</StyledNavLink>
+            <StyledNavLink to="/portfolio">Livreto</StyledNavLink>
+            <StyledNavLink to="/noticias">Notícias</StyledNavLink>
             <StyledNavLink to="/contato">Contato</StyledNavLink>
           </Nav>
         </BSNavbar.Collapse>

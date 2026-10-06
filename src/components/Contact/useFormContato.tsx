@@ -6,6 +6,7 @@ export const useFormContato = () => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
+    const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
     const clearForm = () => {
         setName("");
@@ -16,6 +17,7 @@ export const useFormContato = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setStatus("sending");
 
         try {
             await api.post('/messages', {
@@ -25,11 +27,13 @@ export const useFormContato = () => {
                 message,
             });
             clearForm();
+            setStatus("success");
         } catch (error) {
             const err = error as { response?: { status?: number; data?: unknown }; message?: string };
             const status = err.response?.status;
             const data = err.response?.data;
             console.error("Erro ao enviar mensagem:", { status, data, message: err.message });
+            setStatus("error");
         }
     };
 
@@ -42,6 +46,7 @@ export const useFormContato = () => {
         setPhone,
         message,
         setMessage,
+        status,
         handleSubmit,
         clearForm,
     };
