@@ -166,8 +166,13 @@ const quebrarEmFrases = (paragrafos: string[]) =>
   );
 
 export default function Portfolio() {
-  const { titulo, pdf, pdfDownloadName, transcricaoUrl, audiodescricaoPorPagina } =
-    portfolio;
+  const {
+    titulo,
+    pdf,
+    pdfDownloadName,
+    transcricaoUrl,
+    audiodescricaoPorPagina,
+  } = portfolio;
   const [pagina, setPagina] = useState(1);
   const [total, setTotal] = useState(0);
   const [continuo, setContinuo] = useState(false);
@@ -183,7 +188,8 @@ export default function Portfolio() {
     const partes = [`Página ${n}.`];
     if (descricao(n)) partes.push(`Descrição das imagens: ${descricao(n)}`);
     if (texto.length) partes.push(...quebrarEmFrases(texto));
-    else if (!descricao(n)) partes.push("Esta página contém apenas imagens ou ilustrações.");
+    else if (!descricao(n))
+      partes.push("Esta página contém apenas imagens ou ilustrações.");
     return partes;
   };
 
@@ -213,8 +219,8 @@ export default function Portfolio() {
       <Hero>
         <h1>Portfólio Acessível</h1>
         <p>
-          Folheie o livreto do SisAssistiva, baixe o PDF, ouça o conteúdo em
-          voz alta, leia a transcrição em texto e use o VLibras para ver o texto
+          Folheie o livreto do SisAssistiva, baixe o PDF, ouça o conteúdo em voz
+          alta, leia a transcrição em texto e use o VLibras para ver o texto
           traduzido para Libras.
         </p>
       </Hero>
@@ -293,9 +299,10 @@ export default function Portfolio() {
         )}
         {!descricao(pagina) && (
           <Note>
-            Esta é uma versão de teste: a voz lê o texto das páginas. A descrição
-            das imagens (audiodescrição de fato) ainda precisa ser escrita por
-            uma pessoa e cadastrada em <code>src/data/portfolio.ts</code>.
+            Esta é uma versão de teste: a voz lê o texto das páginas. A
+            descrição das imagens (audiodescrição de fato) ainda precisa ser
+            escrita por uma pessoa e cadastrada em{" "}
+            <code>src/data/portfolio.ts</code>.
           </Note>
         )}
 
