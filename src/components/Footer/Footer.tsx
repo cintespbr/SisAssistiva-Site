@@ -19,7 +19,7 @@ export default function Footer() {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/mapa-interativo">Mapa Interativo</NavLink>
           <NavLink to="/vitrine">Vitrine</NavLink>
-          <NavLink to="/portfolio">Portfólio Acessível</NavLink>
+          <NavLink to="/livreto">Livreto Acessível</NavLink>
           <NavLink to="/parceiros">Parceiros</NavLink>
           <NavLink to="/contato">Contato</NavLink>
         </NavLinks>

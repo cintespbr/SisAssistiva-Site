@@ -1,6 +1,6 @@
 # Arquivos do Portfólio Acessível
 
-Tudo nesta pasta é servido na raiz do site (`public/portfolio/x.pdf` → `/portfolio/x.pdf`).
+Tudo nesta pasta é servido na raiz do site (`public/docs/livreto/x.pdf` → `/docs/livreto/x.pdf`).
 Os caminhos são configurados em `src/data/portfolio.ts`.
 
 | Arquivo | O que é |
