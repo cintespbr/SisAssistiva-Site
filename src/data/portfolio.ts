@@ -1,7 +1,7 @@
 /**
  * Configuração do Portfólio Acessível.
  *
- * Os arquivos ficam em `public/docs/livreto/` (veja o README.md dessa pasta).
+ * Os arquivos ficam em `public/portfolio/` (veja o README.md dessa pasta).
  */
 export interface PortfolioConfig {
   titulo: string;
@@ -25,8 +25,8 @@ export interface PortfolioConfig {
 
 export const portfolio: PortfolioConfig = {
   titulo: "Livreto SisAssistiva 2026: Projetos e Iniciativas",
-  pdf: "/docs/livreto/livreto-sisassistiva-2026.pdf",
+  pdf: "/portfolio/livreto-sisassistiva-2026.pdf",
   pdfDownloadName: "livreto-sisassistiva-2026.pdf",
-  transcricaoUrl: "/docs/livreto/livreto-transcricao.json",
+  transcricaoUrl: "/portfolio/livreto-transcricao.json",
   audiodescricaoPorPagina: {},
 };
