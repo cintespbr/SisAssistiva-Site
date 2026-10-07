@@ -99,7 +99,7 @@ const fadeRight: Variants = {
 };
 
 const ContactSection: React.FC = () => {
-  const { name, setName, email, setEmail, phone, setPhone, message, setMessage, handleSubmit } =
+  const { name, setName, email, setEmail, phone, setPhone, message, setMessage, status, handleSubmit } =
     useFormContato();
 
   return (
@@ -118,6 +118,7 @@ const ContactSection: React.FC = () => {
                 type="text"
                 name="nome"
                 placeholder="Nome"
+                aria-label="Nome"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -126,6 +127,7 @@ const ContactSection: React.FC = () => {
                 type="email"
                 name="email"
                 placeholder="E-mail"
+                aria-label="E-mail"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -134,16 +136,27 @@ const ContactSection: React.FC = () => {
                 type="tel"
                 name="telefone"
                 placeholder="Telefone"
+                aria-label="Telefone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
               <TextArea
                 name="assunto"
+                required
                 placeholder="Assunto"
+                aria-label="Assunto"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               />
-              <Button type="submit">Enviar</Button>
+              <Button type="submit" disabled={status === "sending"}>
+                {status === "sending" ? "Enviando..." : "Enviar"}
+              </Button>
+              <p role="status" aria-live="polite" style={{ margin: 0 }}>
+                {status === "success" && "Mensagem enviada com sucesso!"}
+                {status === "error" &&
+                  "Não foi possível enviar a mensagem. Tente novamente."}
+              </p>
+
             </FormWrapper>
           </Col>
 

@@ -17,7 +17,7 @@ export default function Footer() {
 
         <NavLinks>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/mapa">Mapa Interativo</NavLink>
+          <NavLink to="/mapa-interativo">Mapa Interativo</NavLink>
           <NavLink to="/vitrine">Vitrine</NavLink>
           <NavLink to="/parceiros">Parceiros</NavLink>
           <NavLink to="/contato">Contato</NavLink>
@@ -27,10 +27,11 @@ export default function Footer() {
           <a
             href="https://www.instagram.com/sisassistiva_mcti/"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Instagram
           </a>
-          <a href="mailto: sislab.integrador@femec.ufu.br">E-mail</a>
+          <a href="mailto:sislab.integrador@femec.ufu.br">E-mail</a>
         </SocialLinks>
 
         <Copyright>© {new Date().getFullYear()} SisAssistiva</Copyright>
