@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "postbuild": "node scripts/postbuild-portfolio.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
