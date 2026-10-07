@@ -31,16 +31,6 @@ jobs:
           VITE_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
         run: npm run build
 
-      - name: Remove pasta antiga /portfolio (colide com a rota SPA e gera 403)
-        continue-on-error: true
-        run: |
-          install -m 700 -d ~/.ssh
-          printf '%s
-' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_deploy
-          chmod 600 ~/.ssh/id_deploy
-          ssh -i ~/.ssh/id_deploy -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10             root@"${{ secrets.FTP_SERVER_PROD }}"             'rm -rf /home/sisassistiva/htdocs/sisassistiva.org/portfolio'
-          rm -f ~/.ssh/id_deploy
-
       - name: deploy file to server Prod
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
