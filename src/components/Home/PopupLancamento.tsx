@@ -19,6 +19,8 @@ const Topo = styled.div`
   color: white;
   text-align: center;
   padding: 32px 24px;
+  border-radius: var(--bs-modal-inner-border-radius)
+    var(--bs-modal-inner-border-radius) 0 0;
 
   span {
     display: block;
