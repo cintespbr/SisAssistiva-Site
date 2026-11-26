@@ -8,10 +8,12 @@ import RedeSection from "./RedeSection";
 import ParaQuemSection from "./ParaQuemSection";
 import AtividadesSection from "./AtividadesSection";
 import ContactSection from "./ContactSection";
+import PopupLancamento from "./PopupLancamento";
 
 const Home: React.FC = () => {
   return (
     <>
+      <PopupLancamento />
       <HeroSection />
       <SobreSection />
       <PartnersSection />
