@@ -151,14 +151,14 @@ export default function PdfFlipbook({
     <Viewer
       tabIndex={0}
       role="group"
-      aria-label="Livreto folheável. Use as setas do teclado para trocar de página."
+      aria-label="Livro SisAssistiva folheável. Use as setas do teclado para trocar de página."
       onKeyDown={aoTeclar}
     >
       <Stage ref={stageRef}>
         <Document
           file={file}
-          loading={<Msg role="status">Carregando o livreto…</Msg>}
-          error={<Msg role="alert">Não foi possível carregar o livreto. Use o botão de download.</Msg>}
+          loading={<Msg role="status">Carregando o Livro SisAssistiva…</Msg>}
+          error={<Msg role="alert">Não foi possível carregar o Livro SisAssistiva. Use o botão de download.</Msg>}
           onLoadSuccess={({ numPages }) => {
             setTotal(numPages);
             onTotalPaginas(numPages);

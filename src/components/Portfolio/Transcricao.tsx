@@ -176,7 +176,7 @@ export default function Transcricao({ paginas, descricoes, status }: Props) {
     const url = URL.createObjectURL(new Blob([txt], { type: "text/plain;charset=utf-8" }));
     const a = document.createElement("a");
     a.href = url;
-    a.download = "livreto-sisassistiva-transcricao.txt";
+    a.download = "livro-sisassistiva-transcricao.txt";
     a.click();
     URL.revokeObjectURL(url);
   };
