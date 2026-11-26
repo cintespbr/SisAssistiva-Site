@@ -37,6 +37,29 @@ const Hero = styled.section`
   }
 `;
 
+const Aviso = styled.aside`
+  padding-top: 40px;
+  text-align: center;
+
+  > div > div {
+    background: #e8f4fc;
+    border: 2px solid #0082d3;
+    border-radius: 20px;
+    padding: 24px 20px;
+    color: #00588f;
+  }
+
+  p {
+    margin-bottom: 6px;
+    font-size: 1.1rem;
+  }
+
+  strong {
+    display: block;
+    font-size: 1.35rem;
+  }
+`;
+
 const Section = styled.section`
   padding: 60px 0 0;
 
@@ -217,13 +240,24 @@ export default function Portfolio() {
   return (
     <PageWrapper>
       <Hero>
-        <h1>Livreto Acessível</h1>
+        <h1>Livro SisAssistiva</h1>
         <p>
-          Folheie o livreto do SisAssistiva, baixe o PDF, ouça o conteúdo em voz
+          Folheie o Livro SisAssistiva, baixe o PDF, ouça o conteúdo em voz
           alta, leia a transcrição em texto e use o VLibras para ver o texto
           traduzido para Libras.
         </p>
       </Hero>
+
+      <Aviso aria-label="Lançamento">
+        <Container>
+          <div>
+            <p>Conheça sobre os projetos da Rede SisAssistiva!</p>
+            <strong>
+              Lançamento do Livro SisAssistiva: projetos e iniciativas 2026
+            </strong>
+          </div>
+        </Container>
+      </Aviso>
 
       <Block id="livreto-pdf" title={titulo}>
         <p>

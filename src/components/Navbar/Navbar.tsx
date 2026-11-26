@@ -92,6 +92,7 @@ const Navbar = () => {
                 Parceiros
               </NavDropdown.Item>
             </StyledDropdown>
+            <StyledNavLink to="/portfolio">Livro SisAssistiva</StyledNavLink>
             <StyledNavLink to="/noticias">Notícias</StyledNavLink>
             <StyledNavLink to="/contato">Contato</StyledNavLink>
           </Nav>

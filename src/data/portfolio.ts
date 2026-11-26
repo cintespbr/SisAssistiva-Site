@@ -24,9 +24,9 @@ export interface PortfolioConfig {
 }
 
 export const portfolio: PortfolioConfig = {
-  titulo: "Livreto SisAssistiva 2026: Projetos e Iniciativas",
+  titulo: "Livro SisAssistiva 2026: Projetos e Iniciativas",
   pdf: "/docs/livreto/livreto-sisassistiva-2026.pdf",
-  pdfDownloadName: "livreto-sisassistiva-2026.pdf",
+  pdfDownloadName: "livro-sisassistiva-2026.pdf",
   transcricaoUrl: "/docs/livreto/livreto-transcricao.json",
   audiodescricaoPorPagina: {},
 };
